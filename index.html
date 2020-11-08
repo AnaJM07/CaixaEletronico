@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset= "utf-8"/>
+        <title>Saque Eletronico</title>
+    </head>
+    <body>
+    <h1>Saque Eletronico</h1>
+    <form>
+        <label for="valor1">Informe o valor do saque</label>
+        <input type="number" id="valor1" />
+        <br>
+        <button onclick="btnSacar()">Sacar</button>
+        <button onclick="btnLimpar()">Limpar</button>
+      </form>
+    <script>
+          function btnSacar(){
+            var isvalid = true;
+            valor = document.getElementById("valor1").value;
+            var c100 = 0;
+            var c50 = 0;
+            var c20 = 0;
+            var c10 = 0;
+            
+            if (valor == 0 )
+            {
+                document.write("Valor Invalido")
+                isvalid = false;
+                return;
+            }
+            while (valor > 0)
+            {
+                if (valor >= 100)
+                {
+                    valor -= 100;
+                    c100++;
+                }
+                else if (valor >= 50)
+                {
+                    valor -= 50;
+                    c50++;
+                }
+                else if (valor >= 20)
+                {
+                    valor -= 20;
+                    c20++;
+                }
+                else if (valor >= 10)
+                {
+                    valor -= 10;
+                    c10++;
+                }
+                else
+                {
+                    document.write("Valor Invalido");
+                    isvalid = false;
+                    break;
+                }
+            }
+            if (isvalid == true)
+            {
+           document.write("Foram utilizadas: <br/>",+c100 ,"- Notas de 100, <br/>",+c50, "- Notas de 50, <br/>", +c20,"- Notas de 20,<br/>",+c10," - Notas de 10 ")
+        }
+            function btnLimpar(){
+                window.document.getElementById("valor1").innerHTML == '';
+            }
+
+        }
+
+      </SCRIPT>
+    </body>
+
+</html>
